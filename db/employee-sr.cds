@@ -14,13 +14,13 @@ entity Employees {
         desig      : String(100);
 
         @title: 'Email'
-    key email      : String(100);
+        email      : String(100);
 
         @title: 'Skills'
         skills     : String;
 
         @title: 'Country'
-        country    : String;
+        country    : Association to Country;
 
         @title: 'State'
         State      : String;
@@ -78,4 +78,14 @@ entity Project {
         @title: 'Employee Name'
         employees : Association to many Employees
                         on employees.projects = $self;
+}
+entity Country{
+@title : 'Country'
+    key ID        : Integer;
+
+        name      : String;
+
+        employees : Association to many Employees
+                        on employees.country = $self;
+
 }

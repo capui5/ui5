@@ -1,0 +1,65 @@
+<mvc:View controllerName="empreg.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+   <Page
+        id="page"
+        title="{i18n>title}">
+        <content>
+            <FlexBox
+                class="tileContainer"
+                justifyContent="Center"
+                alignItems="Start"
+                wrap="Wrap">
+                <GenericTile
+                    class="center sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
+                    press=".onToPage2"
+                    type="navigation"
+                    frameType="TwoByHalf">
+                    <TileContent>
+                        <content>
+                            <VBox class="centeredHeader">
+                                <Title
+                                    text="NETHERLANDS"
+                                    level="H2"
+                                    class="centeredHeaderText"/>
+                                <Text text="" />
+                            </VBox>
+                        </content>
+                    </TileContent>
+                </GenericTile>
+                <GenericTile
+                    class="center sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
+                    press=".onToPage3"
+                    frameType="TwoByHalf">
+                    <TileContent>
+                        <content>
+                            <VBox class="centeredHeader">
+                                <Title
+                                    text="INDIA"
+                                    level="H2"
+                                    class="centeredHeaderText"/>
+                                <Text text="" />
+                            </VBox>
+                        </content>
+                    </TileContent>
+                </GenericTile>
+                <GenericTile
+                    class="center sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
+                    press=".onToPage4"
+                    frameType="TwoByHalf">
+                    <TileContent>
+                        <content>
+                            <VBox class="centeredHeader">
+                                <Title
+                                    text="SINGAPORE"
+                                    level="H2"
+                                    class="centeredHeaderText"/>
+                                <Text text="" />
+                            </VBox>
+                        </content>
+                    </TileContent>
+                </GenericTile>
+            </FlexBox>
+        </content>
+    </Page>
+</mvc:View>

@@ -1,0 +1,69 @@
+###
+DELETE  http://localhost:4004/CatalogService/Employees/30
+
+//http://151c23dbtrial-dev-emrej-srv.cfapps.us10-001.hana.ondemand.com/CatalogService/Employees/5
+
+###
+POST https://151c23dbtrial-dev-emrej-srv.cfapps.us10-001.hana.ondemand.com/CatalogService/Employees
+Content-Type: application/json
+
+
+ {
+     
+
+      "ID":11,
+      "fname": "Niraj",
+      "lname": "s",
+      "desig": "Dev",
+      "email": "niraj@aarini.com",
+      "skills": "SAPUI5",
+     "country_ID": 2,
+      "State": "Andhrapradesh",
+      "city": "Vizag",
+      "doj": "2020-04-06",
+      "yoe": 7,
+      "gender": "MALE" ,
+
+       
+
+    "ID":8,
+      "fname": "Ahmet",
+      "lname": "D",
+      "desig": "Dev",
+      "email": "ahmet@aarini.com",
+      "skills": "SAPUI5",
+     "country_ID": 1,
+      "State": "Netherlands",
+      "city": "Netherlands",
+      "doj": "2020-04-06",
+      "yoe": 7,
+      "gender": "MALE",
+
+
+       "ID":7,
+      "fname": "Saurabh",
+      "lname": "P",
+      "desig": "Dev",
+      "email": "saurabh@aarini.com",
+      "skills": "SAPUI5",
+     "country_ID": 3,
+      "State": "Singapore",
+      "city": "Singapore",
+      "doj": "2020-04-06",
+      "yoe": 7,
+      "gender": "MALE",
+
+      "ID":20,
+      "fname": "Harish",
+      "lname": "Yarra",
+      "desig": "TL",
+      "email": "harish@aarini.com",
+      "skills": "Full stack",
+     "country_ID": 2,
+      "State": "ts",
+      "city": "hyd",
+      "doj": "2020-04-06",
+      "yoe": 7,
+      "gender": "male"
+
+  }

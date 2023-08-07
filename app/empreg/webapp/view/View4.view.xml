@@ -1,0 +1,136 @@
+<mvc:View controllerName="empreg.controller.View4"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core">
+   <Page
+        id="page"
+        title="SINGAPORE EMPLOYEES"
+        navButtonPress="onNavBack"
+    >
+        <content>
+            <Table
+                items="{/Employees}"
+                id="table0"
+                mode="SingleSelectLeft"
+                selectionChange="onSelect"
+                autoPopinMode="true"
+            >
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <content>
+                            <ToolbarSpacer />
+                            <SearchField
+                                id="searchField"
+                                width="auto"
+                                search=".onFilter"
+                            />
+                            <Button
+                                id="createButton"
+                                icon="sap-icon://add"
+                                text="Add New Employee"
+                                visible="true"
+                                press="onaddnewemployee"
+                            >
+                                <layoutData>
+                                    <OverflowToolbarLayoutData
+                                        priority="NeverOverflow"
+                                    />
+                                </layoutData>
+                            </Button>
+                            <Button
+                                id="deleteButton"
+                                icon="sap-icon://delete"
+                                tooltip="Delete"
+                                visible="false"
+                                press="onDelete"
+                            >
+                                <layoutData>
+                                    <OverflowToolbarLayoutData
+                                        priority="NeverOverflow"
+                                    />
+                                </layoutData>
+                            </Button>
+                            <Button
+                                id="saveButton"
+                                text="Save"
+                                type="Emphasized"
+                                visible="false"
+                                enabled="true"
+                                press="onSave"
+                            />
+                            <Button
+                                id="editModeButton"
+                                visible="true"
+                                icon="sap-icon://edit"
+                                tooltip="Edit"
+                                press="onEditMode"
+                            >
+                                <layoutData>
+                                    <OverflowToolbarLayoutData
+                                        priority="NeverOverflow"
+                                    />
+                                </layoutData>
+                            </Button>
+                        </content>
+                    </OverflowToolbar>
+                </headerToolbar>
+               
+                <columns>
+                    <Column>
+                        <Text text="Employee ID" />
+                    </Column>
+                    <Column>
+                        <Text text="First Name" />
+                    </Column>
+                    <Column>
+                        <Text text="Last Name" />
+                    </Column>
+                    <Column>
+                        <Text text="Designation" />
+                    </Column>
+                    <Column>
+                        <Text text="Skills" />
+                    </Column>
+                    <Column>
+                        <Text text="Country" />
+                    </Column>
+                    <Column>
+                        <Text text="State" />
+                    </Column>
+                    <Column>
+                        <Text text="City" />
+                    </Column>
+                    <Column>
+                        <Text text="Date Of joining" />
+                    </Column>
+                    <Column>
+                        <Text text="Years Of Experience" />
+                    </Column>
+                    <Column>
+                        <Text text="Gender" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{ID}" />
+                            <Text text="{fname}" />
+                            <Text text="{lname}" />
+                            <Text text="{desig}" />
+                            <Text text="{skills}" />
+                            <Text text="{country/name}" />
+                            <Text text="{State}" />
+                            <Text text="{city}" />
+                            <Text text="{doj}" />
+                            <Text text="{yoe} year" />
+                            <Text text="{gender}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Page>
+</mvc:View>

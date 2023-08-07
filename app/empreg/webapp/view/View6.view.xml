@@ -1,0 +1,22 @@
+<mvc:View controllerName="empreg.controller.View6"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+   <Page
+		id="page"
+		showNavButton="true"
+		navButtonPress=".onNavBack"
+		class="sapUiResponsiveContentPadding">
+		<content>
+			<List id="table0" headerText="ListOfAllEmployees" items="{/Employees}">
+				<items>
+					<StandardListItem
+						title="{fname} {lname}"
+						iconDensityAware="false"
+						iconInset="false"/>
+				</items>
+			</List>
+		</content>
+	</Page>
+</mvc:View>

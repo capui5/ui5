@@ -1,0 +1,228 @@
+{
+    "_version": "1.49.0",
+    "sap.app": {
+        "id": "empreg",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:basic",
+            "version": "1.10.3",
+            "toolsId": "39431fb8-67bf-46a0-8ada-c77e3745386f"
+        },
+        "dataSources": {
+            "mainService": {
+                "uri": "/CatalogService/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/metadata.xml",
+                    "odataVersion": "4.0"
+                }
+            }
+        },
+        "crossNavigation": {
+            "inbounds": {
+                "empreg-inbound": {
+                    "signature": {
+                        "parameters": {},
+                        "additionalParameters": "allowed"
+                    },
+                    "semanticObject": "Employee App",
+                    "action": "manage",
+                    "title": "{{flpTitle}}",
+                    "subTitle": "{{flpSubtitle}}",
+                    "icon": ""
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.116.0",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.f": {},
+                "sap.suite.ui.generic.template": {},
+                "sap.ui.comp": {},
+                "sap.ui.generic.app": {},
+                "sap.ui.table": {},
+                "sap.ushell": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "empreg.i18n.i18n"
+                }
+            },
+            "": {
+                "dataSource": "mainService",
+                "preload": true,
+                "settings": {
+                    "synchronizationMode": "None",
+                    "operationMode": "Server",
+                    "autoExpandSelect": true,
+                    "earlyRequests": true
+                }
+            },
+            "dataModel": {
+                    "type": "sap.ui.model.odata.v2.ODataModel",
+                    "uri": "https://151c23dbtrial-dev-emrej-srv.cfapps.us10-001.hana.ondemand.com",
+                    "settings": {
+                        "odataVersion": "2.0",
+                        "defaultBindingMode": "TwoWay",
+                        "defaultCountMode": "Request",
+                        "useBatch": false,
+                        "X-Requested-With": "XMLHttpRequest"
+                    }
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "async": true,
+                "viewPath": "empreg.view",
+                "controlAggregation": "pages",
+                "controlId": "app",
+                "clearControlAggregation": false
+            },
+            "routes": [
+                {
+                    "name": "RouteView1",
+                    "pattern": ":?query:",
+                    "target": [
+                        "TargetView1"
+                    ]
+                },
+                {
+                    "name": "View2",
+                    "pattern": "View2",
+                    "target": [
+                        "View2"
+                    ]
+                },
+                {
+                    "name": "View3",
+                    "pattern": "View3",
+                    "target": [
+                        "View3"
+                    ]
+                },
+                {
+                    "name": "View4",
+                    "pattern": "View4",
+                    "target": [
+                        "View4"
+                    ]
+                },
+                {
+                    "name": "View5",
+                    "pattern": "View5",
+                    "target": [
+                        "View5"
+                    ]
+                },
+                {
+                    "name": "View6",
+                    "pattern": "View6",
+                    "target": [
+                        "View6"
+                    ]
+                }
+            ],
+            "targets": {
+                "TargetView1": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "View1",
+                    "viewName": "View1"
+                },
+                "View2": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "View2",
+                    "viewName": "View2",
+                    "viewLevel": 1
+                },
+                "View3": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "View3",
+                    "viewName": "View3",
+                    "viewLevel": 2
+                },
+                "View4": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "View4",
+                    "viewName": "View4",
+                    "viewLevel": 3
+                },
+                "View5": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "View5",
+                    "viewName": "View5",
+                    "viewLevel": 4
+                },
+                "View6": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "View6",
+                    "viewName": "View6",
+                    "viewLevel": 5
+                }
+
+            }
+        },
+        "rootView": {
+            "viewName": "empreg.view.App",
+            "type": "XML",
+            "async": true,
+            "id": "App"
+        }
+    }
+}

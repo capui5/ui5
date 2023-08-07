@@ -1,0 +1,117 @@
+<mvc:View controllerName="empreg.controller.View5"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+>
+    <Page
+        id="createButton"
+        title="Add New Employee"
+          showNavButton="true"
+        navButtonPress="onNavBack"
+    >
+        <content>
+            <form:SimpleForm
+                editable="true"
+                layout="ResponsiveGridLayout"
+            >
+                <form:content>
+                 <Label
+                        text="Employee ID"
+                        required="true"
+                    />
+                    <Input id="Id" />
+                    <Label
+                        text="First Name"
+                        required="true"
+                    />
+                    <Input id="fname" />
+                    <Label
+                        text="Last Name"
+                        required="true"
+                    />
+                    <Input id="lname" />
+                    <Label
+                        text="Designation"
+                        required="true"
+                    />
+                    <Input id="desig" />
+                    <Label
+                        text="Email Id"
+                        required="true"
+                    />
+                    <Input id="email" />
+
+                    <Label
+                        text="Skills"
+                        required="true"
+                    />
+                    <Input id="skills" />
+                    <Label
+                        text="Country"
+                        required="true"
+                    />
+                    <Select
+                        id="country"
+                        selectedKey="{Country}"
+                    >
+                        <items>
+                            <core:Item
+                                text="Netherlands"
+                                key="Netherlands"
+                            />
+                            <core:Item
+                                text="India"
+                                key="India"
+                            />
+                            <core:Item
+                                text="Singapore"
+                                key="Singapore"
+                            />
+                        </items>
+                    </Select>
+                    <Label text="State" />
+                    <Input id="idstate" />
+                    <Label text="City" />
+                    <Input id="idcity" />
+                    <Label text="Date Of joining" />
+                   <DatePicker id="myDatePicker" valueFormat="yyyy-MM-dd" />
+                    <Label
+                        text="Years Of Experience"
+                        required="true"
+                    />
+                    <Input id="yoe" />
+                    <Label
+                        text="Gender"
+                        required="true"
+                    />
+                    <RadioButtonGroup
+                        id="genderRadioGroup"
+                        columns="2"
+                        selectedIndex="0"
+                    >
+                        <buttons>
+                            <RadioButton text="Male" />
+                            <RadioButton text="Female" />
+                        </buttons>
+                    </RadioButtonGroup>
+                </form:content>
+            </form:SimpleForm>
+            <Button
+                id="create"
+                text="Submit"
+                press=".onCreate"
+                type="Emphasized"
+            />
+
+            <Button
+                id="cancel"
+                text="Cancel"
+                press="onCancel"
+                type="Transparent"
+            />
+        </content>
+    </Page>
+</mvc:View>

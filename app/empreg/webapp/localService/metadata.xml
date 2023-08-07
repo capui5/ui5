@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="CatalogService" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <EntityContainer Name="EntityContainer">
+                <EntitySet Name="Employees" EntityType="CatalogService.Employees">
+                    <NavigationPropertyBinding Path="country" Target="Country"/>
+                    <NavigationPropertyBinding Path="department" Target="Department"/>
+                    <NavigationPropertyBinding Path="projects" Target="Project"/>
+                </EntitySet>
+                <EntitySet Name="Department" EntityType="CatalogService.Department">
+                    <NavigationPropertyBinding Path="employees" Target="Employees"/>
+                </EntitySet>
+                <EntitySet Name="Project" EntityType="CatalogService.Project">
+                    <NavigationPropertyBinding Path="employees" Target="Employees"/>
+                </EntitySet>
+                <EntitySet Name="Country" EntityType="CatalogService.Country">
+                    <NavigationPropertyBinding Path="employees" Target="Employees"/>
+                </EntitySet>
+            </EntityContainer>
+            <EntityType Name="Employees">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                    <PropertyRef Name="email"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="fname" Type="Edm.String" MaxLength="100"/>
+                <Property Name="lname" Type="Edm.String" MaxLength="100"/>
+                <Property Name="desig" Type="Edm.String" MaxLength="100"/>
+                <Property Name="email" Type="Edm.String" MaxLength="100" Nullable="false"/>
+                <Property Name="skills" Type="Edm.String"/>
+                <NavigationProperty Name="country" Type="CatalogService.Country" Partner="employees">
+                    <ReferentialConstraint Property="country_ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+                <Property Name="country_ID" Type="Edm.Int32"/>
+                <Property Name="State" Type="Edm.String"/>
+                <Property Name="city" Type="Edm.String"/>
+                <Property Name="doj" Type="Edm.Date"/>
+                <Property Name="yoe" Type="Edm.Int32"/>
+                <Property Name="gender" Type="Edm.String"/>
+                <NavigationProperty Name="department" Type="CatalogService.Department" Partner="employees">
+                    <ReferentialConstraint Property="department_ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+                <Property Name="department_ID" Type="Edm.Int32"/>
+                <NavigationProperty Name="projects" Type="CatalogService.Project" Partner="employees">
+                    <ReferentialConstraint Property="projects_ID" ReferencedProperty="ID"/>
+                </NavigationProperty>
+                <Property Name="projects_ID" Type="Edm.Int32"/>
+            </EntityType>
+            <EntityType Name="Department">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="name" Type="Edm.String"/>
+                <Property Name="country" Type="Edm.String"/>
+                <Property Name="state" Type="Edm.String"/>
+                <Property Name="city" Type="Edm.String"/>
+                <NavigationProperty Name="employees" Type="Collection(CatalogService.Employees)" Partner="department"/>
+            </EntityType>
+            <EntityType Name="Project">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="name" Type="Edm.String"/>
+                <Property Name="workhrs" Type="Edm.Int32"/>
+                <NavigationProperty Name="employees" Type="Collection(CatalogService.Employees)" Partner="projects"/>
+            </EntityType>
+            <EntityType Name="Country">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="name" Type="Edm.String"/>
+                <NavigationProperty Name="employees" Type="Collection(CatalogService.Employees)" Partner="country"/>
+            </EntityType>
+            <Annotations Target="CatalogService.Employees/ID">
+                <Annotation Term="Common.Label" String="Employee ID"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Employees/fname">
+                <Annotation Term="Common.Label" String="First Name"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Employees/lname">
+                <Annotation Term="Common.Label" String="Last Name"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Employees/desig">
+                <Annotation Term="Common.Label" String="Designation"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Employees/email">
+                <Annotation Term="Common.Label" String="Email"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Employees/skills">
+                <Annotation Term="Common.Label" String="Skills"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Employees/country">
+                <Annotation Term="Common.Label" String="Country"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Employees/country_ID">
+                <Annotation Term="Common.Label" String="Country"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Employees/State">
+                <Annotation Term="Common.Label" String="State"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Employees/city">
+                <Annotation Term="Common.Label" String="City"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Employees/doj">
+                <Annotation Term="Common.Label" String="Date of Joining"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Employees/yoe">
+                <Annotation Term="Common.Label" String="Years of experience"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Employees/gender">
+                <Annotation Term="Common.Label" String="Gender"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Employees/department">
+                <Annotation Term="Common.Label" String="Department"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Employees/department_ID">
+                <Annotation Term="Common.Label" String="Department"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Employees/projects">
+                <Annotation Term="Common.Label" String="Projects"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Employees/projects_ID">
+                <Annotation Term="Common.Label" String="Projects"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Department/ID">
+                <Annotation Term="Common.Label" String="Department ID"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Department/name">
+                <Annotation Term="Common.Label" String="Department Name"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Department/country">
+                <Annotation Term="Common.Label" String="Country"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Department/state">
+                <Annotation Term="Common.Label" String="State"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Department/city">
+                <Annotation Term="Common.Label" String="City"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Department/employees">
+                <Annotation Term="Common.Label" String="Employee Name"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Project/ID">
+                <Annotation Term="Common.Label" String="Project ID"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Project/name">
+                <Annotation Term="Common.Label" String="Project Name"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Project/workhrs">
+                <Annotation Term="Common.Label" String="Working Hours"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Project/employees">
+                <Annotation Term="Common.Label" String="Employee Name"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Country/ID">
+                <Annotation Term="Common.Label" String="Country"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
