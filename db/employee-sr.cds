@@ -42,6 +42,18 @@ entity Employees {
 
         @title: 'Projects'
         projects   : Association to Project;
+
+        // @title: 'Leave Status'
+        // onleave   : Association to OnLeave;
+
+        @title : 'Leave'
+        leave :Boolean;
+
+        @title : 'Reporting Person'
+        reportingPerson : String;
+
+        @title : 'Phone Number'
+        Phno: Integer;
 }
 
 entity Department {
@@ -79,8 +91,9 @@ entity Project {
         employees : Association to many Employees
                         on employees.projects = $self;
 }
-entity Country{
-@title : 'Country'
+
+entity Country {
+        @title: 'Country'
     key ID        : Integer;
 
         name      : String;
@@ -89,3 +102,10 @@ entity Country{
                         on employees.country = $self;
 
 }
+
+// entity OnLeave {
+//     @title: 'OnLeave'
+//     name : Boolean;
+//     employees : Association to many Employees
+//                     on employees.onleave = $self;
+// }

@@ -47,6 +47,36 @@ modules:
     - npm install
     - npm run build:cf
     supported-platforms: []
+- name: emrej-destination-content
+  type: com.sap.application.content
+  requires:
+  - name: emrej-destination-service
+    parameters:
+      content-target: true
+  - name: emrej-repo-host
+    parameters:
+      service-key:
+        name: emrej-repo-host-key
+  - name: uaa_emrej
+    parameters:
+      service-key:
+        name: uaa_emrej-key
+  parameters:
+    content:
+      instance:
+        destinations:
+        - Name: Registration_emrej_repo_host
+          ServiceInstanceName: emrej-html5-srv
+          ServiceKeyName: emrej-repo-host-key
+          sap.cloud.service: Registration
+        - Authentication: OAuth2UserTokenExchange
+          Name: Registration_uaa_emrej
+          ServiceInstanceName: emrej-xsuaa-service
+          ServiceKeyName: uaa_emrej-key
+          sap.cloud.service: Registration
+        existing_destinations_policy: ignore
+  build-parameters:
+    no-source: true
 resources:
 - name: emrej-db
   type: com.sap.xs.hdi-container
@@ -63,20 +93,18 @@ resources:
   type: org.cloudfoundry.managed-service
   parameters:
     config:
-      HTML5Runtime_enabled: false
-      init_data:
-        instance:
-          destinations:
-          - Authentication: NoAuthentication
-            Name: ui5
-            ProxyType: Internet
-            Type: HTTP
-            URL: https://ui5.sap.com
-          existing_destinations_policy: update
+      HTML5Runtime_enabled: true
       version: 1.0.0
     service: destination
     service-name: emrej-destination-service
     service-plan: lite
+- name: uaa_emrej
+  type: org.cloudfoundry.managed-service
+  parameters:
+    path: ./xs-security.json
+    service: xsuaa
+    service-name: emrej-xsuaa-service
+    service-plan: application
 parameters:
   deploy_mode: html5-repo
   enable-parallel-deployments: true
