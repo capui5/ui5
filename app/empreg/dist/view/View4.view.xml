@@ -1,4 +1,4 @@
-<mvc:View controllerName="empreg.controller.View3"
+<mvc:View controllerName="empreg.controller.View4"
     xmlns:mvc="sap.ui.core.mvc"
     displayBlock="true"
     xmlns="sap.m"
@@ -7,8 +7,8 @@
     xmlns:core="sap.ui.core">
    <Page
         id="page"
-        title="Integration Team"
-        showNavButton="true"
+        title="SINGAPORE EMPLOYEES"
+         showNavButton="true"
         navButtonPress="onNavBack"
     >
         <content>
@@ -19,7 +19,7 @@
                 selectionChange="onSelect"
                 autoPopinMode="true"
             >
-                <headerToolbar>
+                      <headerToolbar>
                     <OverflowToolbar>
                         <content>
                             <ToolbarSpacer />

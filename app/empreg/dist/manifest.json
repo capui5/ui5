@@ -17,7 +17,7 @@
         },
         "dataSources": {
             "mainService": {
-                "uri": "/CatalogService/",
+                "uri": "CatalogService/",
                 "type": "OData",
                 "settings": {
                     "annotations": [],
@@ -84,7 +84,7 @@
                     "bundleName": "empreg.i18n.i18n"
                 }
             },
-            "MainModel": {
+            "": {
                 "dataSource": "mainService",
                 "preload": true,
                 "settings": {
@@ -95,15 +95,15 @@
                 }
             },
             "dataModel": {
-                    "type": "sap.ui.model.odata.v2.ODataModel",
-                    "uri": "https://151c23dbtrial-dev-emrej-srv.cfapps.us10-001.hana.ondemand.com",
-                    "settings": {
-                        "odataVersion": "2.0",
-                        "defaultBindingMode": "TwoWay",
-                        "defaultCountMode": "Request",
-                        "useBatch": false,
-                        "X-Requested-With": "XMLHttpRequest"
-                    }
+                "type": "sap.ui.model.odata.v2.ODataModel",
+                "uri": "https://151c23dbtrial-dev-emrej-srv.cfapps.us10-001.hana.ondemand.com",
+                "settings": {
+                    "odataVersion": "2.0",
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Request",
+                    "useBatch": false,
+                    "X-Requested-With": "XMLHttpRequest"
+                }
             }
         },
         "resources": {
@@ -133,21 +133,21 @@
                 },
                 {
                     "name": "View2",
-                    "pattern": "Extension-Team",
+                    "pattern": "Netherlands-Employees",
                     "target": [
                         "View2"
                     ]
                 },
                 {
                     "name": "View3",
-                    "pattern": "Integration-Team",
+                    "pattern": "India-Employees",
                     "target": [
                         "View3"
                     ]
                 },
                 {
                     "name": "View4",
-                    "pattern": "Data-Analytics-Team",
+                    "pattern": "Singapore-Employees",
                     "target": [
                         "View4"
                     ]
@@ -160,46 +160,18 @@
                     ]
                 },
                 {
-                    "name": "List",
-                    "pattern": "Extension-List",
-                    "target": [
-                        "List"
-                    ]
-                },
-                {
                     "name": "View6",
-                    "pattern": "emp-detail/{SEmployeeId}",
+                    "pattern": "View6",
                     "target": [
                         "View6"
                     ]
                 },
                 {
-                    "name": "Integrationlist",
-                    "pattern": "Integration-List",
-                    "target": [
-                        "Integrationlist"
-                    ] 
-                },
-                {
                     "name": "View7",
-                    "pattern":  "emp-detail/{SEmployeeId}",
+                    "pattern": "View7",
                     "target": [
                         "View7"
-                    ] 
-                },
-                {
-                    "name": "Dataanalyticslist",
-                    "pattern":  "Dataanalytics-list",
-                    "target": [
-                        "Dataanalyticslist"
-                    ] 
-                },
-                {
-                    "name": "View8",
-                    "pattern":  "emp-detail/{SEmployeeId}",
-                    "target": [
-                        "View8"
-                    ] 
+                    ]
                 }
             ],
             "targets": {
@@ -243,29 +215,13 @@
                     "viewName": "View5",
                     "viewLevel": 4
                 },
-                "List": {
-                    "viewType": "XML",
-                    "transition": "slide",
-                    "clearControlAggregation": false,
-                    "viewId": "List",
-                    "viewName": "List",
-                    "viewLevel": 5
-                },
                 "View6": {
                     "viewType": "XML",
                     "transition": "slide",
                     "clearControlAggregation": false,
                     "viewId": "View6",
                     "viewName": "View6",
-                    "viewLevel": 6
-                },
-                "Integrationlist": {
-                    "viewType": "XML",
-                    "transition": "slide",
-                    "clearControlAggregation": false,
-                    "viewId": "Integrationlist",
-                    "viewName": "Integrationlist",
-                    "viewLevel": 7
+                    "viewLevel": 5
                 },
                 "View7": {
                     "viewType": "XML",
@@ -273,26 +229,8 @@
                     "clearControlAggregation": false,
                     "viewId": "View7",
                     "viewName": "View7",
-                    "viewLevel": 8
-                },
-                
-                "Dataanalyticslist":{
-                    "viewType": "XML",
-                    "transition": "slide",
-                    "clearControlAggregation": false,
-                    "viewId": "Dataanalyticslist",
-                    "viewName": "Dataanalyticslist",
-                    "viewLevel": 9
-                },
-                "View8":{
-                    "viewType": "XML",
-                    "transition": "slide",
-                    "clearControlAggregation": false,
-                    "viewId": "View8",
-                    "viewName": "View8",
-                    "viewLevel": 10
+                    "viewLevel": 6
                 }
-
             }
         },
         "rootView": {

@@ -1,13 +1,15 @@
-<mvc:View controllerName="empreg.controller.View3"
+<mvc:View
+    controllerName="empreg.controller.View2"
     xmlns:mvc="sap.ui.core.mvc"
     displayBlock="true"
     xmlns="sap.m"
     xmlns:form="sap.ui.layout.form"
     xmlns:l="sap.ui.layout"
-    xmlns:core="sap.ui.core">
-   <Page
+    xmlns:core="sap.ui.core"
+>
+    <Page
         id="page"
-        title="Integration Team"
+        title="NETHERLANDS EMPLOYEES"
         showNavButton="true"
         navButtonPress="onNavBack"
     >
@@ -91,7 +93,7 @@
                         </content>
                     </OverflowToolbar>
                 </headerToolbar>
-               
+
                 <columns>
                     <Column>
                         <Text text="Employee ID" />
@@ -104,6 +106,9 @@
                     </Column>
                     <Column>
                         <Text text="Designation" />
+                    </Column>
+                    <Column>
+                        <Text text="Email" />
                     </Column>
                     <Column>
                         <Text text="Skills" />
@@ -130,10 +135,15 @@
                 <items>
                     <ColumnListItem>
                         <cells>
+                            <RadioButton
+                                selected="{active}"
+                                enabled="true"
+                            />
                             <Text text="{ID}" />
                             <Text text="{fname}" />
                             <Text text="{lname}" />
                             <Text text="{desig}" />
+                            <Text text="{email}" />
                             <Text text="{skills}" />
                             <Text text="{country/name}" />
                             <Text text="{State}" />
@@ -145,6 +155,7 @@
                     </ColumnListItem>
                 </items>
             </Table>
+            
         </content>
     </Page>
 </mvc:View>

@@ -1,1 +1,96 @@
 /* Enter your custom styles here */
+
+
+.leavestatus {
+    color: red; 
+}
+.redText {
+    color: red;
+  }
+  
+  .greenText {
+    color: green;
+  }
+
+  .customFont {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.customHeader {
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+}
+
+.customContent {
+    margin: 16px;
+}
+
+.roundImage {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    z-index: 1;
+}
+
+.imageText {
+    position: absolute;
+    top: 260px;
+    left: 120px; 
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.customForm {
+    background-color: #f5f5f5;
+}
+
+.formLabel {
+    text-align: right;
+    width: 150px;
+    display: inline-block;
+}
+
+.formText {
+    font-weight: bold;
+    font-size: medium;
+    color: #333;
+}
+
+.customToolbar {
+    background-color: #f5f5f5;
+    padding: 20px; 
+}
+
+.sapMBtn.increaseFont .sapMBtnIcon .sapUiIcon{
+    font-size: 1.5rem;
+    color: red;
+}
+.customListItem .sapMSLITitle {
+    font-weight: bold;
+    font-size: 16px;
+}
+.myCustomTile {
+    background-color: #f0f0f0; 
+    border: 1px solid #CCCCCC; 
+    padding: 10px; 
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); 
+  }
+
+.largerTitle .sapMTitle {
+    font-size: large ;
+}
+.centeredHeader {
+    text-align: center; 
+}
+
+  .centeredHeaderText {
+    font-size: 20px; 
+    font-weight: bold; 
+    color: #333; 
+  }

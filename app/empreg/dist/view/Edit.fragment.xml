@@ -1,24 +1,30 @@
-<mvc:View controllerName="empreg.controller.View5"
-    xmlns:mvc="sap.ui.core.mvc"
-    displayBlock="true"
-    xmlns="sap.m"
-    xmlns:form="sap.ui.layout.form"
-    xmlns:l="sap.ui.layout"
-    xmlns:core="sap.ui.core"
->
-    <Page
-        id="createButton"
-        title="Add New Employee"
-          showNavButton="true"
-        navButtonPress="onNavBack"
-        class="sapUiResponsiveContentPadding "
-    >
-        <content>
-            <form:SimpleForm
-                editable="true"
-                layout="ResponsiveGridLayout"
-            >
-                <form:content>
+
+<core:FragmentDefinition
+xmlns="sap.m"
+xmlns:f="sap.ui.layout.form"
+xmlns:l="sap.ui.layout"
+xmlns:core="sap.ui.core"
+id="inputdialog">
+    <Dialog id="openDialog" title="Update the Details of Employee">
+    <VBox class="sapUiSmallMargin">
+    <f:SimpleForm
+         id="SimpleFormDisplay354"
+         editable="true"
+         layout="ResponsiveGridLayout"
+         labelSpanXL="3"
+     labelSpanL="3"
+         labelSpanM="3"
+         labelSpanS="12"
+         adjustLabelSpan="false"
+         emptySpanXL="4"
+         emptySpanL="4"
+         emptySpanM="4"
+         emptySpanS="0"
+     columnsXL="1"
+         columnsL="1"
+         columnsM="1"
+         singleContainerFullSize="false">
+   <f:content>
                  <Label
                         text="Employee ID"
                         required="true"
@@ -84,11 +90,6 @@
                         required="true"
                     />
                     <Input id="yoe" />
-                     <Label
-                        text="Reporting Person"
-                        required="true"
-                    />
-                    <Input id="reportingPerson" />
                     <Label
                         text="Gender"
                         required="true"
@@ -103,21 +104,12 @@
                             <RadioButton text="Female" />
                         </buttons>
                     </RadioButtonGroup>
-                </form:content>
-            </form:SimpleForm>
-            <Button
-                id="create"
-                text="Submit"
-                press=".onCreate"
-                type="Emphasized"
-            />
-
-            <Button
-                id="cancel"
-                text="Cancel"
-                press="onCancel"
-                type="Transparent"
-            />
-        </content>
-    </Page>
-</mvc:View>
+                 </f:content>
+    </f:SimpleForm>
+    </VBox>
+<buttons>
+    <Button text="Update" press=".onUpdate" type="Emphasized"/>
+    <Button text="Cancel" press=".onCancel" type="Transparent"/>
+</buttons>
+</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,103 @@
+<mvc:View
+    controllerName="empreg.controller.List"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    xmlns:css="sap.ui.core.CSS"
+>
+    <Page
+        title="List Of All Extension Employees"
+        showNavButton="false"
+        class="sapUiResponsiveContentPadding customFont"
+    >
+        <content>
+            <!-- <List
+                id="employeelist"
+                mode="SingleSelectMaster"
+                items="{
+        path: 'MainModel>/Employees',
+        filters: [
+            {
+                path: 'reportingPerson',
+                operator: 'EQ', 
+                value1: 'Harish' 
+            },
+            
+        ]
+    }"
+                selectionChange="onListItemPress"
+                class="customFont"
+            > -->
+            <List
+    id="employeelist"
+    mode="SingleSelectMaster"
+    items="{
+        path: 'MainModel>/Employees',
+        filters: [
+            {
+                filters: [
+                    {
+                        path: 'reportingPerson',
+                        operator: 'Contains',
+                        value1: 'Harish'
+                    },
+                    {
+                        path: 'fname',
+                        operator: 'Contains',
+                        value1: 'Harish'
+                    }
+                ],
+                and: false 
+            }
+        ]
+    }"
+    selectionChange="onListItemPress"
+    class="customFont"
+>
+
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <content>
+                            <ToolbarSpacer />
+                            <SearchField
+                                id="advancedSearchField"
+                                width="auto"
+                                liveChange="onAdvancedSearch"
+                                placeholder="Search"
+                            />
+
+                            <Button
+                                id="createButton"
+                                icon="sap-icon://add"
+                                text="Add New Employee"
+                                visible="true"
+                                press="onaddnewemployee"
+                                class="sapUiTinyMarginBeginEnd"
+                                type="{/buttonType}"
+                            >
+                                <layoutData>
+                                    <OverflowToolbarLayoutData
+                                        priority="NeverOverflow"
+                                    />
+                                </layoutData>
+                            </Button>
+                        </content>
+                    </OverflowToolbar>
+                </headerToolbar>
+
+                <items>
+        <StandardListItem
+            title="{MainModel>fname} {MainModel>lname}"
+            description="{MainModel>desig}"
+            info="{= 'On Leave: ' + ${MainModel>leave}}"
+            class="customListItem"
+            infoState="{= ${MainModel>leave} === 'No' ? 'Success' : 'Warning'}"
+        />
+    </items>
+            </List>
+        </content>
+    </Page>
+</mvc:View>

@@ -10,8 +10,7 @@ sap.ui.define([
 
     return Controller.extend("empreg.controller.View5", {
       onInit: function () {
-        // this.oTable = this.byId("table0");
-        this.oList = this.byId("employeelist");
+        this.oTable = this.byId("table0");
         // var oManifest = this.getOwnerComponent().getManifest();
         //var serviceUrl = oManifest["sap.app"].dataModel.serviceUrl;
       },
@@ -37,7 +36,7 @@ sap.ui.define([
       //Create start//
       onCreate: function () {
         var that = this;
-        var oView = this.getView().getModel("MainModel");
+        var oView = this.getView().getModel("dataModel");
         var sSelectedCountry = this.byId("country").getSelectedItem().getKey();
         var oCountryMapping = {
           "Netherlands": 1,
@@ -56,8 +55,7 @@ sap.ui.define([
           State: this.byId("idstate").getValue(),
           city: this.byId("idcity").getValue(),
           doj: this.byId("myDatePicker").getValue(),
-          yoe: parseInt(this.byId("yoe").getValue()),
-          reportingPerson:this.byId("reportingPerson").getValue(),
+          yoe: parseInt(this.byId("yoe").getValue(), 32),
           gender: this.byId("genderRadioGroup").getSelectedButton().getText()
         };
 

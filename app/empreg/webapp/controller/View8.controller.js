@@ -9,26 +9,28 @@ sap.ui.define([
     var URLHelper = mobileLibrary.URLHelper;
 
 
-    return Controller.extend("empreg.controller.View6", {
+    return Controller.extend("empreg.controller.View8", {
 
         onInit: function () {
             this.oList = this.byId("employeelist");
             this.oDataModel = this.getOwnerComponent().getModel();
             this.getView().setModel(this.oDataModel);
             var oRouter = this.getOwnerComponent().getRouter();
-            oRouter.getRoute("View6").attachPatternMatched(this._onRouteMatched, this);
+            oRouter.getRoute("View8").attachPatternMatched(this._onRouteMatched, this);
 
 
         },
+
         onNavBack: function () {
             var oRouter = this.getOwnerComponent().getRouter();
-            oRouter.navTo("List");
+            oRouter.navTo("Integrationlist");
         },
         _onRouteMatched: function (oEvent) {
             var oParameters = oEvent.getParameters();
             var sEmployeeId = oParameters.arguments.SEmployeeId;
             var oView = this.getView();
             var oModel = oView.getModel("MainModel");
+            
             oView.bindElement({
                 path: "/Employees/" + sEmployeeId,
                 model: "MainModel"
@@ -89,6 +91,7 @@ sap.ui.define([
                 return jQuery.sap.getModulePath("empreg", "/images/default_image.jpg");
             }
         },
+        
 
         onEdit: function () {
             var oView = this.getView();
@@ -265,6 +268,8 @@ sap.ui.define([
         onCancel: function (oEvent) {
             this.byId("openDialog").close();
         },
+
+
 
     });
 });

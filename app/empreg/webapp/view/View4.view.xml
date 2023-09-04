@@ -7,7 +7,8 @@
     xmlns:core="sap.ui.core">
    <Page
         id="page"
-        title="SINGAPORE EMPLOYEES"
+        title="Data Analytics Team"
+         showNavButton="true"
         navButtonPress="onNavBack"
     >
         <content>
@@ -18,7 +19,7 @@
                 selectionChange="onSelect"
                 autoPopinMode="true"
             >
-                <headerToolbar>
+                      <headerToolbar>
                     <OverflowToolbar>
                         <content>
                             <ToolbarSpacer />
@@ -44,7 +45,7 @@
                                 id="deleteButton"
                                 icon="sap-icon://delete"
                                 tooltip="Delete"
-                                visible="false"
+                                visible="true"
                                 press="onDelete"
                             >
                                 <layoutData>
@@ -54,6 +55,19 @@
                                 </layoutData>
                             </Button>
                             <Button
+                                id="editButton"
+                                icon="sap-icon://edit"
+                                tooltip="Edit"
+                                visible="true"
+                                press="onEdit"
+                            >
+                                <layoutData>
+                                    <OverflowToolbarLayoutData
+                                        priority="NeverOverflow"
+                                    />
+                                </layoutData>
+                            </Button>
+                            <!-- <Button
                                 id="saveButton"
                                 text="Save"
                                 type="Emphasized"
@@ -73,7 +87,7 @@
                                         priority="NeverOverflow"
                                     />
                                 </layoutData>
-                            </Button>
+                            </Button> -->
                         </content>
                     </OverflowToolbar>
                 </headerToolbar>

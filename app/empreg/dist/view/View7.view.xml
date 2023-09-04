@@ -1,0 +1,92 @@
+<mvc:View controllerName="empreg.controller.View7"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.ui.layout.form"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+    <Page
+        id="employeePage"
+        title="EmployeeDetailsOf {fname} {lanme}"
+        showNavButton="true"
+        navButtonPress=".onNavBack"
+        class="sapUiResponsiveContentPadding"
+    >
+        <content>
+            <Panel
+                id="employeePanel"
+                width="auto"
+                class="sapUiNoContentPadding"
+            >
+                <headerToolbar>
+                    <Toolbar>
+                        <Title
+                            text="Employees"
+                            level="H2"
+                        />
+
+                        <ToolbarSpacer />
+                    </Toolbar>
+                </headerToolbar>
+
+                <content>
+                    <f:SimpleForm
+                        editable="false"
+                        layout="ResponsiveGridLayout"
+                        labelSpanL="3"
+                        labelSpanM="3"
+                        emptySpanL="4"
+                        emptySpanM="4"
+                        columnsL="1"
+                        columnsM="1"
+                    >
+                        <f:content>
+                            <Label text="Employee ID" />
+
+                            <Text text="{ID}" />
+
+                            <Label text="First Name" />
+
+                            <Text text="{fname}" />
+
+                            <Label text="Last Name" />
+
+                            <Text text="{lname}" />
+
+                            <Label text="Designation" />
+
+                            <Text text="{desig}" />
+
+                            <Label text="Email" />
+
+                            <Text text="{email}" />
+
+                            <Label text="Skills" />
+
+                            <Text text="{skills}" />
+
+                            <Label text="Country" />
+
+                            <Text text="{country/name}" />
+
+                            <Label text="City" />
+
+                            <Text text="{city}" />
+
+                            <Label text="Date of Joining" />
+
+                            <Text text="{doj}" />
+
+                            <Label text="Years Of Experience" />
+
+                            <Text text="{yoe}" />
+
+                            <Label text="Gender" />
+
+                            <Text text="{gender}" />
+                        </f:content>
+                    </f:SimpleForm>
+                </content>
+            </Panel>
+        </content>
+    </Page>
+</mvc:View>

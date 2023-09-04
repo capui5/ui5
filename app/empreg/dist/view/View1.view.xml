@@ -11,7 +11,7 @@
                 alignItems="Start"
                 wrap="Wrap">
                 <GenericTile
-                    class="center sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout myCustomTile"
+                    class="center sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
                     press=".onToPage2"
                     type="navigation"
                     frameType="TwoByHalf">
@@ -19,7 +19,7 @@
                         <content>
                             <VBox class="centeredHeader">
                                 <Title
-                                    text="Extension Team"
+                                    text="NETHERLANDS"
                                     level="H2"
                                     class="centeredHeaderText"/>
                                 <Text text="" />
@@ -28,14 +28,14 @@
                     </TileContent>
                 </GenericTile>
                 <GenericTile
-                    class="center sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout myCustomTile"
+                    class="center sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
                     press=".onToPage3"
                     frameType="TwoByHalf">
                     <TileContent>
                         <content>
                             <VBox class="centeredHeader">
                                 <Title
-                                    text="Integration Team"
+                                    text="INDIA"
                                     level="H2"
                                     class="centeredHeaderText"/>
                                 <Text text="" />
@@ -44,14 +44,14 @@
                     </TileContent>
                 </GenericTile>
                 <GenericTile
-                    class="center sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout myCustomTile"
+                    class="center sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
                     press=".onToPage4"
                     frameType="TwoByHalf">
                     <TileContent>
                         <content>
                             <VBox class="centeredHeader">
                                 <Title
-                                    text="Data Analytics Team"
+                                    text="SINGAPORE"
                                     level="H2"
                                     class="centeredHeaderText"/>
                                 <Text text="" />

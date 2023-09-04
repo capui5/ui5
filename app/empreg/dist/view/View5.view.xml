@@ -11,7 +11,6 @@
         title="Add New Employee"
           showNavButton="true"
         navButtonPress="onNavBack"
-        class="sapUiResponsiveContentPadding "
     >
         <content>
             <form:SimpleForm
@@ -84,11 +83,6 @@
                         required="true"
                     />
                     <Input id="yoe" />
-                     <Label
-                        text="Reporting Person"
-                        required="true"
-                    />
-                    <Input id="reportingPerson" />
                     <Label
                         text="Gender"
                         required="true"
