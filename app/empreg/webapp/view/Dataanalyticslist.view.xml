@@ -9,7 +9,7 @@
     xmlns:css="sap.ui.core.CSS"
 >
     <Page
-        title="List Of All DataAnalytics Employees"
+        title="All DataAnalytics Employees"
         showNavButton="false"
         class="sapUiResponsiveContentPadding customFont"
     >

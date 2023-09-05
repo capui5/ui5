@@ -1,5 +1,5 @@
 <mvc:View
-    controllerName="empreg.controller.Integrationlist"
+    controllerName="empreg.controller.AllEmployees"
     xmlns:mvc="sap.ui.core.mvc"
     displayBlock="true"
     xmlns="sap.m"
@@ -9,7 +9,7 @@
     xmlns:css="sap.ui.core.CSS"
 >
     <Page
-        title="All Integration Employees"
+        title="All Employees"
         showNavButton="false"
         class="sapUiResponsiveContentPadding customFont"
     >
@@ -17,26 +17,7 @@
             <List
                 id="employeelist"
                 mode="SingleSelectMaster"
-                  items="{
-        path: 'MainModel>/Employees',
-        filters: [
-            {
-                filters: [
-                    {
-                        path: 'reportingPerson',
-                        operator: 'Contains',
-                        value1: 'Deepankar'
-                    },
-                    {
-                        path: 'fname',
-                        operator: 'Contains',
-                        value1: 'Deepankar'
-                    }
-                ],
-                and: false 
-            }
-        ]
-    }"
+                items="{MainModel>/Employees}"
                 selectionChange="onListItemPress"
                 class="customFont"
             >

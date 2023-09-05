@@ -9,7 +9,7 @@
     xmlns:css="sap.ui.core.CSS"
 >
     <Page
-        title="List Of All Extension Employees"
+        title="All Extension Employees"
         showNavButton="false"
         class="sapUiResponsiveContentPadding customFont"
     >

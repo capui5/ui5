@@ -22,6 +22,9 @@ sap.ui.define([
             onToPage4: function () {
                 var oRouter = this.getOwnerComponent().getRouter();
                 oRouter.navTo("Dataanalyticslist");
-            }
+            },
+            onToPage5:function(){
+                var oRouter=this.getOwnerComponent().getRouter();
+                oRouter.navTo("AllEmployees")}
+            })
         });
-    });

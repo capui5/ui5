@@ -17,7 +17,7 @@
         },
         "dataSources": {
             "mainService": {
-                "uri": "/CatalogService/",
+                "uri": "CatalogService/",
                 "type": "OData",
                 "settings": {
                     "annotations": [],
@@ -95,15 +95,15 @@
                 }
             },
             "dataModel": {
-                    "type": "sap.ui.model.odata.v2.ODataModel",
-                    "uri": "https://151c23dbtrial-dev-emrej-srv.cfapps.us10-001.hana.ondemand.com",
-                    "settings": {
-                        "odataVersion": "2.0",
-                        "defaultBindingMode": "TwoWay",
-                        "defaultCountMode": "Request",
-                        "useBatch": false,
-                        "X-Requested-With": "XMLHttpRequest"
-                    }
+                "type": "sap.ui.model.odata.v2.ODataModel",
+                "uri": "https://151c23dbtrial-dev-emrej-srv.cfapps.us10-001.hana.ondemand.com",
+                "settings": {
+                    "odataVersion": "2.0",
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Request",
+                    "useBatch": false,
+                    "X-Requested-With": "XMLHttpRequest"
+                }
             }
         },
         "resources": {
@@ -178,28 +178,42 @@
                     "pattern": "Integration-List",
                     "target": [
                         "Integrationlist"
-                    ] 
+                    ]
                 },
                 {
                     "name": "View7",
-                    "pattern":  "emp-detail/{SEmployeeId}",
+                    "pattern": "emp-detail/{SEmployeeId}",
                     "target": [
                         "View7"
-                    ] 
+                    ]
                 },
                 {
                     "name": "Dataanalyticslist",
-                    "pattern":  "Dataanalytics-list",
+                    "pattern": "Dataanalytics-list",
                     "target": [
                         "Dataanalyticslist"
-                    ] 
+                    ]
                 },
                 {
                     "name": "View8",
-                    "pattern":  "emp-detail/{SEmployeeId}",
+                    "pattern": "emp-detail/{SEmployeeId}",
                     "target": [
                         "View8"
-                    ] 
+                    ]
+                },
+                {
+                    "name": "AllEmployees",
+                    "pattern": "AllEmployees",
+                    "target": [
+                        "AllEmployees"
+                    ]
+                },
+                {
+                    "name": "View9",
+                    "pattern": "emp-detail/{SEmployeeId}",
+                    "target": [
+                        "View9"
+                    ]
                 }
             ],
             "targets": {
@@ -275,8 +289,7 @@
                     "viewName": "View7",
                     "viewLevel": 8
                 },
-                
-                "Dataanalyticslist":{
+                "Dataanalyticslist": {
                     "viewType": "XML",
                     "transition": "slide",
                     "clearControlAggregation": false,
@@ -284,15 +297,30 @@
                     "viewName": "Dataanalyticslist",
                     "viewLevel": 9
                 },
-                "View8":{
+                "View8": {
                     "viewType": "XML",
                     "transition": "slide",
                     "clearControlAggregation": false,
                     "viewId": "View8",
                     "viewName": "View8",
                     "viewLevel": 10
+                },
+                "AllEmployees": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "AllEmployees",
+                    "viewName": "AllEmployees",
+                    "viewLevel": 11
+                },
+                "View9": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "View9",
+                    "viewName": "View9",
+                    "viewLevel": 12
                 }
-
             }
         },
         "rootView": {
