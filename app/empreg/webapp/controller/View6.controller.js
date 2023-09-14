@@ -2,9 +2,10 @@ sap.ui.define([
     "sap/ui/core/mvc/Controller",
     'sap/m/library',
     "sap/m/MessageBox",
-    "sap/ui/core/Fragment"
+    "sap/ui/core/Fragment",
+    "sap/ui/core/routing/History"
 
-], function (Controller, mobileLibrary, MessageBox, Fragment) {
+], function (Controller, mobileLibrary, MessageBox, Fragment,History) {
     "use strict";
     var URLHelper = mobileLibrary.URLHelper;
 
@@ -20,18 +21,31 @@ sap.ui.define([
 
 
         },
-        onNavBack: function () {
+        onback: function(){
             var oRouter = this.getOwnerComponent().getRouter();
-            oRouter.navTo("List");
+            oRouter.navTo("AllEmployees");
         },
+        onNavBack: function () {
+
+            var oHistory, sPreviousHash;
+            oHistory = History.getInstance();
+            sPreviousHash = oHistory.getPreviousHash();
+            if (sPreviousHash !== undefined) {
+              window.history.go(-1);
+            } else {
+              this.getRouter().navTo("List", {}, true /*no history*/);
+            }
+    
+          },
+
         _onRouteMatched: function (oEvent) {
             var oParameters = oEvent.getParameters();
             var sEmployeeId = oParameters.arguments.SEmployeeId;
             var oView = this.getView();
-            var oModel = oView.getModel("MainModel");
             oView.bindElement({
                 path: "/Employees/" + sEmployeeId,
                 model: "MainModel"
+                
             });
         },
         //Email handler start//
@@ -91,6 +105,7 @@ sap.ui.define([
         },
 
         onEdit: function () {
+            
             var oView = this.getView();
             if (!this.byId("editDialog")) {
                 Fragment.load({
@@ -115,7 +130,7 @@ sap.ui.define([
         setEmployeeData: function (oEmployee) {
             var oView = this.getView();
 
-            // Set values for various fields based on oEmployee properties
+            // Set values for  fields based on oEmployee properties
             oView.byId("Id").setValue(oEmployee.ID).setEditable(false);
             oView.byId("fname").setValue(oEmployee.fname);
             oView.byId("lname").setValue(oEmployee.lname);
@@ -138,10 +153,9 @@ sap.ui.define([
             } else if (sSelectedGender === "female") {
                 oGenderRadioGroup.setSelectedIndex(1);
             }
-
             // Set the "leave" field and convert it to a string
             var oLeaveSelect = oView.byId("leave");
-            oLeaveSelect.setSelectedKey(oEmployee.leave.toString());
+            oLeaveSelect.setSelectedKey(oEmployee.leave);
         },
 
 
@@ -186,7 +200,7 @@ sap.ui.define([
                 leave: leave,
             };
 
-            fetch(`../../CatalogService/Employees(${updatedEmployee.ID})`, {
+            fetch(`./CatalogService/Employees(${updatedEmployee.ID})`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',

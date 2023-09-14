@@ -35,10 +35,12 @@
                     <Label
                         text="Employee ID"
                         required="true"
+                        id="IdLabel"
                     />
                     <Input
                         id="Id"
                         value="{MainModel>ID}"
+                        visible="false"
                     />
 
                     <!-- First Name -->
@@ -98,22 +100,20 @@
                     />
                     <Select
                         id="country"
-                        selectedKey="{MainModel>country/name}"
+                        selectedKey="{MainModel>country_ID}"
                     >
-                        <items>
-                            <core:Item
-                                text="Netherlands"
-                                key="Netherlands"
-                            />
-                            <core:Item
-                                text="India"
-                                key="India"
-                            />
-                            <core:Item
-                                text="Singapore"
-                                key="Singapore"
-                            />
-                        </items>
+                        <core:Item
+                            key="1"
+                            text="Netherlands"
+                        />
+                        <core:Item
+                            key="2"
+                            text="India"
+                        />
+                        <core:Item
+                            key="3"
+                            text="Singapore"
+                        />
                     </Select>
 
                     <!-- State -->
@@ -157,7 +157,7 @@
                         text="Reporting Person"
                         required="true"
                     />
-                     <Input
+                    <Input
                         id="reportingPerson"
                         value="{MainModel>reportingPerson}"
                     />
@@ -169,7 +169,7 @@
                         id="phonenumber"
                         value="{MainModel>Phno}"
                     />
-                   
+
                     <!-- Gender -->
                     <Label
                         text="Gender"
@@ -178,11 +178,12 @@
                     <RadioButtonGroup
                         id="genderRadioGroup"
                         columns="2"
-                        selectedIndex="{MainModel>gender}"
+                        selectedIndex="{MainModel>/SelectedGenderIndex}"
                     >
                         <buttons>
+                          <RadioButton text="Female" />
                             <RadioButton text="Male" />
-                            <RadioButton text="Female" />
+                          
                         </buttons>
                     </RadioButtonGroup>
 
@@ -190,17 +191,19 @@
                     <Label
                         text="Leave"
                         required="true"
+                        
+            
                     />
 
-                    <Select id="leave">
+                    <Select id="leave" selectedKey="MainModel>leave">
                         <items>
                             <core:Item
-                                text="ON LEAVE"
+                                text="Yes"
                                 key="true"
                             />
 
                             <core:Item
-                                text="WORKING"
+                                text="No"
                                 key="false"
                             />
                         </items>

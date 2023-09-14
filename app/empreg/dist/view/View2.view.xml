@@ -6,36 +6,43 @@
     xmlns:form="sap.ui.layout.form"
     xmlns:l="sap.ui.layout"
     xmlns:core="sap.ui.core"
+    xmlns:css="sap.ui.core.CSS"
 >
     <Page
         id="page"
-        title="NETHERLANDS EMPLOYEES"
+        title="Extension Team"
         showNavButton="true"
         navButtonPress="onNavBack"
     >
         <content>
             <Table
-                items="{/Employees}"
+                items="{MainModel>/Employees}"
                 id="table0"
-                mode="SingleSelectLeft"
+                mode="MultiSelect"
                 selectionChange="onSelect"
                 autoPopinMode="true"
+                contextualWidth="Auto"
+                alternateRowColors="true"
             >
                 <headerToolbar>
                     <OverflowToolbar>
                         <content>
                             <ToolbarSpacer />
                             <SearchField
-                                id="searchField"
+                                id="advancedSearchField"
                                 width="auto"
-                                search=".onFilter"
+                                liveChange="onAdvancedSearch"
+                                placeholder="Search"
                             />
+
                             <Button
                                 id="createButton"
                                 icon="sap-icon://add"
                                 text="Add New Employee"
                                 visible="true"
                                 press="onaddnewemployee"
+                                class="sapUiTinyMarginBeginEnd"
+                                type="{/buttonType}"
                             >
                                 <layoutData>
                                     <OverflowToolbarLayoutData
@@ -69,93 +76,143 @@
                                     />
                                 </layoutData>
                             </Button>
-                            <!-- <Button
-                                id="saveButton"
-                                text="Save"
-                                type="Emphasized"
-                                visible="false"
-                                enabled="true"
-                                press="onSave"
-                            />
-                            <Button
-                                id="editModeButton"
-                                visible="true"
-                                icon="sap-icon://edit"
-                                tooltip="Edit"
-                                press="onEditMode"
-                            >
-                                <layoutData>
-                                    <OverflowToolbarLayoutData
-                                        priority="NeverOverflow"
-                                    />
-                                </layoutData>
-                            </Button> -->
                         </content>
                     </OverflowToolbar>
                 </headerToolbar>
 
                 <columns>
-                    <Column>
+                    <Column
+                        width="6em"
+                        demandPopin="true"
+                        hAlign="Center"
+                        minScreenWidth="small"
+                    >
                         <Text text="Employee ID" />
                     </Column>
-                    <Column>
+                    <Column
+                        width="6em"
+                        demandPopin="true"
+                        hAlign="Center"
+                         minScreenWidth="small"
+                    >
                         <Text text="First Name" />
                     </Column>
-                    <Column>
+                    <Column
+                        width="6em"
+                        demandPopin="true"
+                        hAlign="Center"
+                         minScreenWidth="small"
+                    >
                         <Text text="Last Name" />
                     </Column>
-                    <Column>
+                    <Column
+                        width="6em"
+                        demandPopin="true"
+                        hAlign="Center"
+                         minScreenWidth="small"
+                    >
                         <Text text="Designation" />
                     </Column>
-                    <Column>
-                        <Text text="Email" />
+                    <Column
+                        width="6em"
+                        demandPopin="true"
+                        hAlign="Center"
+                         minScreenWidth="small"
+                    >
+                        <Text text="Email"/>
                     </Column>
-                    <Column>
+                    <Column
+                        width="6em"
+                        demandPopin="true"
+                        hAlign="Center"
+                         minScreenWidth="small"
+                    >
                         <Text text="Skills" />
                     </Column>
-                    <Column>
+                    <Column
+                        width="6em"
+                        demandPopin="true"
+                        hAlign="Center"
+                         minScreenWidth="small"
+                    >
                         <Text text="Country" />
                     </Column>
-                    <Column>
+                    <Column
+                        width="6em"
+                        demandPopin="true"
+                        hAlign="Center"
+                         minScreenWidth="small"
+                    >
                         <Text text="State" />
                     </Column>
-                    <Column>
+                    <Column
+                        width="6em"
+                        demandPopin="true"
+                        hAlign="Center"
+                         minScreenWidth="small"
+                    >
                         <Text text="City" />
                     </Column>
-                    <Column>
+                    <Column
+                        width="6em"
+                        demandPopin="true"
+                        hAlign="Center"
+                         minScreenWidth="small"
+                    >
                         <Text text="Date Of joining" />
                     </Column>
-                    <Column>
+                    <Column
+                        width="6em"
+                        demandPopin="true"
+                        hAlign="Center"
+                         minScreenWidth="small"
+                    >
                         <Text text="Years Of Experience" />
                     </Column>
-                    <Column>
+                    <Column
+                        width="6em"
+                        demandPopin="true"
+                        hAlign="Center"
+                         minScreenWidth="small"
+                    >
                         <Text text="Gender" />
+                    </Column>
+                    <Column
+                        width="6em"
+                        demandPopin="true"
+                        hAlign="Center"
+                         minScreenWidth="small"
+                        >
+                    <Text text="Leave" />
                     </Column>
                 </columns>
                 <items>
-                    <ColumnListItem>
+                    <ColumnListItem
+                        vAlign="Middle"
+                        type="Navigation"
+                      >
                         <cells>
                             <RadioButton
                                 selected="{active}"
                                 enabled="true"
                             />
-                            <Text text="{ID}" />
-                            <Text text="{fname}" />
-                            <Text text="{lname}" />
-                            <Text text="{desig}" />
-                            <Text text="{email}" />
-                            <Text text="{skills}" />
-                            <Text text="{country/name}" />
-                            <Text text="{State}" />
-                            <Text text="{city}" />
-                            <Text text="{doj}" />
-                            <Text text="{yoe} year" />
-                            <Text text="{gender}" />
+                            <Text text="{MainModel>ID}" />
+                            <Text text="{MainModel>fname}" />
+                            <Text text="{MainModel>lname}" />
+                            <Text text="{MainModel>desig}" />
+                          <Link text="{MainModel>email}" press="handleEmailPress"/>
+                            <Text text="{MainModel>skills}" />
+                            <Text text="{MainModel>country/name}" />
+                            <Text text="{MainModel>State}" />
+                            <Text text="{MainModel>city}" />
+                            <Text text="{MainModel>doj}" />
+                            <Text text="{MainModel>yoe} year" />
+                            <Text text="{MainModel>gender}" />
+                            <Text text="{MainModel>Leave}" class="leavestatus"/>
                         </cells>
                     </ColumnListItem>
                 </items>
             </Table>
-            
         </content>
     </Page>
 </mvc:View>

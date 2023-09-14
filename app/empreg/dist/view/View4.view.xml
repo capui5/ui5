@@ -7,7 +7,7 @@
     xmlns:core="sap.ui.core">
    <Page
         id="page"
-        title="SINGAPORE EMPLOYEES"
+        title="Data Analytics Team"
          showNavButton="true"
         navButtonPress="onNavBack"
     >

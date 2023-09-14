@@ -23,7 +23,9 @@
                         text="Employee ID"
                         required="true"
                     />
-                    <Input id="Id" />
+                    <Input id="Id"
+                       visible="false"
+                        />
                     <Label
                         text="First Name"
                         required="true"

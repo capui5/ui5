@@ -54,9 +54,10 @@
             }
         ]
     }"
-    selectionChange="onListItemPress"
+   
     class="customFont"
 >
+
 
                 <headerToolbar>
                     <OverflowToolbar>
@@ -95,6 +96,7 @@
             info="{= 'On Leave: ' + ${MainModel>leave}}"
             class="customListItem"
             infoState="{= ${MainModel>leave} === 'No' ? 'Success' : 'Warning'}"
+            press=".onListItemPressed"
         />
     </items>
             </List>

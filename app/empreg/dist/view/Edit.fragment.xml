@@ -1,95 +1,176 @@
-
 <core:FragmentDefinition
-xmlns="sap.m"
-xmlns:f="sap.ui.layout.form"
-xmlns:l="sap.ui.layout"
-xmlns:core="sap.ui.core"
-id="inputdialog">
-    <Dialog id="openDialog" title="Update the Details of Employee">
-    <VBox class="sapUiSmallMargin">
-    <f:SimpleForm
-         id="SimpleFormDisplay354"
-         editable="true"
-         layout="ResponsiveGridLayout"
-         labelSpanXL="3"
-     labelSpanL="3"
-         labelSpanM="3"
-         labelSpanS="12"
-         adjustLabelSpan="false"
-         emptySpanXL="4"
-         emptySpanL="4"
-         emptySpanM="4"
-         emptySpanS="0"
-     columnsXL="1"
-         columnsL="1"
-         columnsM="1"
-         singleContainerFullSize="false">
-   <f:content>
-                 <Label
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    xmlns:css="sap.ui.core.CSS"
+    xmlns:rating="sap.m"
+    id="inputdialog"
+>
+    <Dialog
+        id="openDialog"
+        title="Update the Details of Employee"
+    >
+        <VBox class="sapUiSmallMargin">
+            <f:SimpleForm
+                id="SimpleFormDisplay354"
+                editable="true"
+                layout="ResponsiveGridLayout"
+                labelSpanXL="3"
+                labelSpanL="3"
+                labelSpanM="3"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="4"
+                emptySpanL="4"
+                emptySpanM="4"
+                emptySpanS="0"
+                columnsXL="1"
+                columnsL="1"
+                columnsM="1"
+                singleContainerFullSize="false"
+            >
+                <f:content>
+                    <!-- Employee ID -->
+                    <Label
                         text="Employee ID"
                         required="true"
+                        id="IdLabel"
                     />
-                    <Input id="Id" />
+                    <Input
+                        id="Id"
+                        value="{MainModel>ID}"
+                        visible="false"
+                    />
+
+                    <!-- First Name -->
                     <Label
                         text="First Name"
                         required="true"
                     />
-                    <Input id="fname" />
+                    <Input
+                        id="fname"
+                        value="{MainModel>fname}"
+                    />
+
+                    <!-- Last Name -->
                     <Label
                         text="Last Name"
                         required="true"
                     />
-                    <Input id="lname" />
+                    <Input
+                        id="lname"
+                        value="{MainModel>lname}"
+                    />
+
+                    <!-- Designation -->
                     <Label
                         text="Designation"
                         required="true"
                     />
-                    <Input id="desig" />
+                    <Input
+                        id="desig"
+                        value="{MainModel>desig}"
+                    />
+
+                    <!-- Email Id -->
                     <Label
                         text="Email Id"
                         required="true"
                     />
-                    <Input id="email" />
+                    <Input
+                        id="email"
+                        value="{MainModel>email}"
+                    />
 
+                    <!-- Skills -->
                     <Label
                         text="Skills"
                         required="true"
                     />
-                    <Input id="skills" />
+                    <Input
+                        id="skills"
+                        value="{MainModel>skills}"
+                    />
+
+                    <!-- Country -->
                     <Label
                         text="Country"
                         required="true"
                     />
                     <Select
                         id="country"
-                        selectedKey="{Country}"
+                        selectedKey="{MainModel>country_ID}"
                     >
-                        <items>
-                            <core:Item
-                                text="Netherlands"
-                                key="Netherlands"
-                            />
-                            <core:Item
-                                text="India"
-                                key="India"
-                            />
-                            <core:Item
-                                text="Singapore"
-                                key="Singapore"
-                            />
-                        </items>
+                        <core:Item
+                            key="1"
+                            text="Netherlands"
+                        />
+                        <core:Item
+                            key="2"
+                            text="India"
+                        />
+                        <core:Item
+                            key="3"
+                            text="Singapore"
+                        />
                     </Select>
-                    <Label text="State" />
-                    <Input id="idstate" />
-                    <Label text="City" />
-                    <Input id="idcity" />
-                    <Label text="Date Of joining" />
-                   <DatePicker id="myDatePicker" valueFormat="yyyy-MM-dd" />
+
+                    <!-- State -->
+                    <Label
+                        text="State"
+                        required="true"
+                    />
+                    <Input
+                        id="idstate"
+                        value="{MainModel>State}"
+                    />
+
+                    <!-- City -->
+                    <Label
+                        text="City"
+                        required="true"
+                    />
+                    <Input
+                        id="idcity"
+                        value="{MainModel>city}"
+                    />
+
+                    <!-- Date Of Joining -->
+                    <Label text="Date Of Joining" />
+                    <DatePicker
+                        id="myDatePicker"
+                        value="{MainModel>doj}"
+                        valueFormat="yyyy-MM-dd"
+                    />
+
+                    <!-- Years Of Experience -->
                     <Label
                         text="Years Of Experience"
                         required="true"
                     />
-                    <Input id="yoe" />
+                    <Input
+                        id="yoe"
+                        value="{MainModel>yoe}"
+                    />
+                    <Label
+                        text="Reporting Person"
+                        required="true"
+                    />
+                    <Input
+                        id="reportingPerson"
+                        value="{MainModel>reportingPerson}"
+                    />
+                    <Label
+                        text="Phone Number"
+                        required="true"
+                    />
+                    <Input
+                        id="phonenumber"
+                        value="{MainModel>Phno}"
+                    />
+
+                    <!-- Gender -->
                     <Label
                         text="Gender"
                         required="true"
@@ -97,19 +178,52 @@ id="inputdialog">
                     <RadioButtonGroup
                         id="genderRadioGroup"
                         columns="2"
-                        selectedIndex="0"
+                        selectedIndex="{MainModel>/SelectedGenderIndex}"
                     >
                         <buttons>
+                          <RadioButton text="Female" />
                             <RadioButton text="Male" />
-                            <RadioButton text="Female" />
+                          
                         </buttons>
                     </RadioButtonGroup>
-                 </f:content>
-    </f:SimpleForm>
-    </VBox>
-<buttons>
-    <Button text="Update" press=".onUpdate" type="Emphasized"/>
-    <Button text="Cancel" press=".onCancel" type="Transparent"/>
-</buttons>
-</Dialog>
+
+                    <!-- Leave -->
+                    <Label
+                        text="Leave"
+                        required="true"
+                        
+            
+                    />
+
+                    <Select id="leave" selectedKey="MainModel>leave">
+                        <items>
+                            <core:Item
+                                text="Yes"
+                                key="true"
+                            />
+
+                            <core:Item
+                                text="No"
+                                key="false"
+                            />
+                        </items>
+                    </Select>
+                </f:content>
+            </f:SimpleForm>
+        </VBox>
+        <buttons>
+            <!-- Update Button -->
+            <Button
+                text="Update"
+                press="onUpdate"
+                type="Emphasized"
+            />
+            <!-- Cancel Button -->
+            <Button
+                text="Cancel"
+                press="onCancel"
+                type="Transparent"
+            />
+        </buttons>
+    </Dialog>
 </core:FragmentDefinition>

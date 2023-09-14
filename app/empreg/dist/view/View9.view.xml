@@ -1,5 +1,5 @@
 <mvc:View
-    controllerName="empreg.controller.View6"
+    controllerName="empreg.controller.View9"
     xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:f="sap.ui.layout.form"
@@ -10,7 +10,7 @@
     <Page
         id="employeePage"
         title="{= 'Employee Details Of ' + ${MainModel>fname} + ' ' + ${MainModel>lname}}"
-        showNavButton="true"
+        showNavButton="false"
         navButtonPress=".onNavBack"
         class="sapUiResponsiveContentPadding customFont"
     >
@@ -37,12 +37,11 @@
                                     press="onEdit"
                                 />
                                 <Button
-                                    id="deleteButton"
                                     icon="sap-icon://delete"
                                     tooltip="Delete"
                                     visible="true"
                                     press="onDelete"
-                                    class="deleteIcon"
+                                  class="sapUiSmallMarginEnd increaseFont"
                                 />
                             </content>
                         </OverflowToolbar>
@@ -182,7 +181,6 @@
                                         </f:FormElement>
                                     </f:formElements>
                                 </f:FormContainer>
-
                                 <f:FormContainer title="Employment Details">
                                     <f:formElements>
                                         <f:FormElement

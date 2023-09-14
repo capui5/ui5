@@ -1,5 +1,5 @@
 <mvc:View
-    controllerName="empreg.controller.AllEmployees"
+    controllerName="empreg.controller.List"
     xmlns:mvc="sap.ui.core.mvc"
     displayBlock="true"
     xmlns="sap.m"
@@ -9,27 +9,64 @@
     xmlns:css="sap.ui.core.CSS"
 >
     <Page
-        title="All Employees"
+        title="All Extension Employees"
         showNavButton="false"
         class="sapUiResponsiveContentPadding customFont"
     >
         <content>
-            <List
-                items="{MainModel>/Employees}"
-              
+            <!-- <List
+                id="employeelist"
+                mode="SingleSelectMaster"
+                items="{
+        path: 'MainModel>/Employees',
+        filters: [
+            {
+                path: 'reportingPerson',
+                operator: 'EQ', 
+                value1: 'Harish' 
+            },
+            
+        ]
+    }"
+                selectionChange="onListItemPress"
                 class="customFont"
-            >
+            > -->
+            <List
+    id="employeelist"
+    mode="SingleSelectMaster"
+    items="{
+        path: 'MainModel>/Employees',
+        filters: [
+            {
+                filters: [
+                    {
+                        path: 'reportingPerson',
+                        operator: 'Contains',
+                        value1: 'Harish'
+                    },
+                    {
+                        path: 'fname',
+                        operator: 'Contains',
+                        value1: 'Harish'
+                    }
+                ],
+                and: false 
+            }
+        ]
+    }"
+   
+    class="customFont"
+>
+
                 <headerToolbar>
                     <OverflowToolbar>
                         <content>
                             <ToolbarSpacer />
                             <SearchField
                                 id="advancedSearchField"
-                                width="87%"
+                                width="auto"
                                 liveChange="onAdvancedSearch"
                                 placeholder="Search"
-                                class = "searchfield"
-
                             />
 
                             <Button
@@ -50,19 +87,17 @@
                         </content>
                     </OverflowToolbar>
                 </headerToolbar>
+
                 <items>
-                    <StandardListItem
-                    id="employeelist"
-                        title="{MainModel>fname} {MainModel>lname}"
-                        description="{MainModel>desig}"
-                        info="{= 'On Leave: ' + ${MainModel>leave}}"
-                        class="customListItem"
-                        infoState="{= ${MainModel>leave} === 'No' ? 'Success' : 'Warning'}"
-                        press="onListItemPress"
-                        type= "Navigation"
-                        
-                    />
-                </items>
+        <StandardListItem
+            title="{MainModel>fname} {MainModel>lname}"
+            description="{MainModel>desig}"
+            info="{= 'On Leave: ' + ${MainModel>leave}}"
+            class="customListItem"
+            infoState="{= ${MainModel>leave} === 'No' ? 'Success' : 'Warning'}"
+            press=".onListItemPressed"
+        />
+    </items>
             </List>
         </content>
     </Page>

@@ -13,15 +13,18 @@ sap.ui.define([
             },
             onToPage2: function () {
                 var oRouter = this.getOwnerComponent().getRouter();
-                oRouter.navTo("View2");
+                oRouter.navTo("List");
             },
             onToPage3: function () {
                 var oRouter = this.getOwnerComponent().getRouter();
-                oRouter.navTo("View3");
+                oRouter.navTo("Integrationlist");
             },
             onToPage4: function () {
                 var oRouter = this.getOwnerComponent().getRouter();
-                oRouter.navTo("View4");
-            }
+                oRouter.navTo("Dataanalyticslist");
+            },
+            onToPage5:function(){
+                var oRouter=this.getOwnerComponent().getRouter();
+                oRouter.navTo("AllEmployees")}
+            })
         });
-    });

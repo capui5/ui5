@@ -198,3 +198,48 @@
   .sapUiSizeCompact .sapUiForm:not(.sapUiFormEdit) .sapUiFormCLSmallColumns .sapUiFormCLContainer>.sapUiFormTitle{
     font-size: larger;
   }
+  #IdLabel {
+    display: none; /* Hide the Label with id="IdLabel" */
+  }
+  
+  #Id {
+    display: none; /* Hide the Input with id="Id" */
+  }
+ /* CSS to align SearchField content to the left */
+.sapMInputBaseInner .sapMInputBaseContentWrapper {
+    justify-content: flex-start !important;
+}
+.fname{
+    font-size: 25px;
+    font-weight: bolder;
+}
+.customButton {
+    width: 150px;
+    height: 50px !important; 
+    margin: 50px;
+}
+.buttonhbox{
+    height: 100px;
+    background-color:white;
+    
+}
+.sidenavview6{
+    height: 600px;
+}
+section#__splitter0-content-1{
+    background-color: white;
+}
+span.sapMBtnInner.sapMBtnEmphasized {
+    background-color: #1bc8ce;
+    border-color: #00ebf2;
+    color: #fff;
+    text-align: center;
+    height: 40px;
+    padding: 10px 20px;
+  }
+  
+  span.sapMBtnInner.sapMBtnEmphasized:hover {
+    background-color: #00ebf2;
+    border-color: #00ebf2;
+    color: #00ebf2;
+  }

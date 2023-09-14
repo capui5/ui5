@@ -1,16 +1,16 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "sap/ui/core/UIComponent"
-], function (Controller, UIComponent) {
+    "sap/ui/core/UIComponent",
+    "sap/m/MessageBox",
+    "sap/ui/core/routing/History"
+], function (Controller, UIComponent, MessageBox, History, ){
     "use strict";
    
-    return Controller.extend("empreg.controller.List", {
+    return Controller.extend("empreg.controller.Dataanalyticslist", {
         onInit: function () {
             this.oList = this.byId("employeelist");
            this.oDataModel = this.getOwnerComponent().getModel();
             this.getView().setModel(this.oDataModel);
-
-         
 
         },
         // yourFormatter: function(sInfo) {
@@ -154,19 +154,19 @@ sap.ui.define([
         },
         // Delete Mode end //
                 //Binding data//
-                onListItemPressed : function(oEvent){
-                  
-                    var oItem, oCtx;
-        
-                    oItem = oEvent.getSource("listItem");
-                    oCtx = oItem.getBindingContext("MainModel");
-        
-                    this.getRouter().navTo("employee",{
-                        employeeId : oCtx.getProperty("ID")
-                    });
-                    console.log("clicked");
-        
-                }
-            });
-        
-        });
+        onListItemPress: function (oEvent) {
+            var oItem = oEvent.getParameter("listItem");
+            var oCtx = oItem.getBindingContext("MainModel");
+            if (oCtx) {
+                var sEmployeeId = oCtx.getProperty("ID");
+                var oRouter = UIComponent.getRouterFor(this);
+                oRouter.navTo("View8", {
+                    SEmployeeId: sEmployeeId,
+                });
+            }
+            else {
+                console.error("Binding context is not available.");
+            }
+        }
+    });
+});

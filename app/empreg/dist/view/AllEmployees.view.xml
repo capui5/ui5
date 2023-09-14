@@ -25,11 +25,9 @@
                             <ToolbarSpacer />
                             <SearchField
                                 id="advancedSearchField"
-                                width="87%"
+                                width="auto"
                                 liveChange="onAdvancedSearch"
                                 placeholder="Search"
-                                class = "searchfield"
-
                             />
 
                             <Button
@@ -50,6 +48,7 @@
                         </content>
                     </OverflowToolbar>
                 </headerToolbar>
+
                 <items>
                     <StandardListItem
                     id="employeelist"

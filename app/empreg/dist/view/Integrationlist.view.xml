@@ -1,5 +1,5 @@
 <mvc:View
-    controllerName="empreg.controller.AllEmployees"
+    controllerName="empreg.controller.Integrationlist"
     xmlns:mvc="sap.ui.core.mvc"
     displayBlock="true"
     xmlns="sap.m"
@@ -9,14 +9,35 @@
     xmlns:css="sap.ui.core.CSS"
 >
     <Page
-        title="All Employees"
+        title="All Integration Employees"
         showNavButton="false"
         class="sapUiResponsiveContentPadding customFont"
     >
         <content>
             <List
-                items="{MainModel>/Employees}"
-              
+                id="employeelist"
+                mode="SingleSelectMaster"
+                  items="{
+        path: 'MainModel>/Employees',
+        filters: [
+            {
+                filters: [
+                    {
+                        path: 'reportingPerson',
+                        operator: 'Contains',
+                        value1: 'Deepankar'
+                    },
+                    {
+                        path: 'fname',
+                        operator: 'Contains',
+                        value1: 'Deepankar'
+                    }
+                ],
+                and: false 
+            }
+        ]
+    }"
+                selectionChange="onListItemPress"
                 class="customFont"
             >
                 <headerToolbar>
@@ -25,11 +46,9 @@
                             <ToolbarSpacer />
                             <SearchField
                                 id="advancedSearchField"
-                                width="87%"
+                                width="auto"
                                 liveChange="onAdvancedSearch"
                                 placeholder="Search"
-                                class = "searchfield"
-
                             />
 
                             <Button
@@ -50,17 +69,14 @@
                         </content>
                     </OverflowToolbar>
                 </headerToolbar>
+
                 <items>
                     <StandardListItem
-                    id="employeelist"
                         title="{MainModel>fname} {MainModel>lname}"
                         description="{MainModel>desig}"
                         info="{= 'On Leave: ' + ${MainModel>leave}}"
                         class="customListItem"
                         infoState="{= ${MainModel>leave} === 'No' ? 'Success' : 'Warning'}"
-                        press="onListItemPress"
-                        type= "Navigation"
-                        
                     />
                 </items>
             </List>

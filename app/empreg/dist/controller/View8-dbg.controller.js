@@ -9,14 +9,14 @@ sap.ui.define([
     var URLHelper = mobileLibrary.URLHelper;
 
 
-    return Controller.extend("empreg.controller.View7", {
+    return Controller.extend("empreg.controller.View8", {
 
         onInit: function () {
             this.oList = this.byId("employeelist");
             this.oDataModel = this.getOwnerComponent().getModel();
             this.getView().setModel(this.oDataModel);
             var oRouter = this.getOwnerComponent().getRouter();
-            oRouter.getRoute("View7").attachPatternMatched(this._onRouteMatched, this);
+            oRouter.getRoute("View8").attachPatternMatched(this._onRouteMatched, this);
 
 
         },

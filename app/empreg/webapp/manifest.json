@@ -96,7 +96,7 @@
             },
             "dataModel": {
                 "type": "sap.ui.model.odata.v2.ODataModel",
-                "uri": "https://151c23dbtrial-dev-emrej-srv.cfapps.us10-001.hana.ondemand.com",
+                "uri": "https://46817d53trial-trail-mrdcth0y-dev-emrej-srv.cfapps.us10-001.hana.ondemand.com",
                 "settings": {
                     "odataVersion": "2.0",
                     "defaultBindingMode": "TwoWay",

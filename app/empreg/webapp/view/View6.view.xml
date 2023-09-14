@@ -6,251 +6,146 @@
     busyIndicatorDelay="0"
     xmlns:core="sap.ui.core"
     xmlns:l="sap.ui.layout"
+    xmlns:tnt="sap.tnt"
 >
-    <Page
-        id="employeePage"
-        title="{= 'Employee Details Of ' + ${MainModel>fname} + ' ' + ${MainModel>lname}}"
-        showNavButton="true"
-        navButtonPress=".onNavBack"
-        class="sapUiResponsiveContentPadding customFont"
-    >
-        <content>
-            <VBox id="contentContainer">
-                <Panel
-                    id="employeePanel"
-                    width="auto"
-                    class="sapUiNoContentPadding customContent customFont customFlexContainer"
-                >
-                    <headerToolbar>
-                        <OverflowToolbar class="customToolbar">
-                            <content>
-                                <Title
-                                    text="{= 'Employee ID: ' + ${MainModel>ID}}"
-                                    level="H2"
-                                />
-                                <ToolbarSpacer />
-                                <Button
-                                    id="editButton"
-                                    visible="true"
-                                    icon="sap-icon://edit"
-                                    tooltip="Edit"
-                                    press="onEdit"
-                                />
-                                <Button
-                                    id="deleteButton"
-                                    icon="sap-icon://delete"
-                                    tooltip="Delete"
-                                    visible="true"
-                                    press="onDelete"
-                                    class="deleteIcon"
-                                />
-                            </content>
-                        </OverflowToolbar>
-                    </headerToolbar>
-                    <content>
-                        <f:Form
-                            id="FormDisplayColumn_threeGroups234"
-                            editable="false"
-                        >
-                            <f:layout>
-                                <f:ColumnLayout
-                                    columnsM="2"
-                                    columnsL="3"
-                                    columnsXL="4"
-                                />
-                            </f:layout>
-                            <f:formContainers>
-                                <f:FormContainer>
-                                    <f:formElements>
-                                        <f:FormElement>
-                                            <f:fields>
-                                                <Image
-                                                    src="{formatter: '.formatPhoto', parts: [{path: 'MainModel>ID'}]}"
-                                                    class="roundImage"
-                                                />
-                                            </f:fields>
-                                        </f:FormElement>
+    <l:Splitter height="600px">
+        <tnt:SideNavigation
+            id="sideNavigation"
+            selectedKey="subItem3"
+            class="sidenavview6"
+        >
+            <tnt:NavigationList>
+                <tnt:NavigationListItem
+                    text="Go Back"
+                    icon="sap-icon://nav-back"
+                    select="onback"
+                />
+            </tnt:NavigationList>
+        </tnt:SideNavigation>
 
-                                        <f:FormElement>
-                                            <f:fields>
-                                                <Text
-                                                    class="imageText"
-                                                    text="{MainModel>desig}"
-                                                />
-                                            </f:fields>
-                                        </f:FormElement>
-                                    </f:formElements>
-                                </f:FormContainer>
-                                <f:FormContainer
-                                    title="Personal Information"
-                                    class="largerTitle"
-                                >
-                                    <f:formElements>
-                                        <f:FormElement
-                                            label="Full Name"
-                                            class="formLabel"
-                                        >
-                                            <f:fields>
-                                                <Text
-                                                    text="{MainModel>fname} {MainModel>lname}"
-                                                    class="formText"
-                                                />
-                                            </f:fields>
-                                        </f:FormElement>
-
-                                        <f:FormElement
-                                            label="Email"
-                                            class="formLabel"
-                                        >
-                                            <f:fields>
-                                                <Link
-                                                    text="{MainModel>email}"
-                                                    press="handleEmailPress"
-                                                    class="formText"
-                                                />
-                                            </f:fields>
-                                        </f:FormElement>
-
-                                        <f:FormElement
-                                            label="Skills"
-                                            class="formLabel"
-                                        >
-                                            <f:fields>
-                                                <Text
-                                                    text="{MainModel>skills}"
-                                                    class="formText"
-                                                />
-                                            </f:fields>
-                                        </f:FormElement>
-
-                                        <f:FormElement
-                                            label="Country"
-                                            class="formLabel"
-                                        >
-                                            <f:fields>
-                                                <Text
-                                                    text="{MainModel>country/name}"
-                                                    class="formText"
-                                                />
-                                            </f:fields>
-                                        </f:FormElement>
-
-                                        <f:FormElement
-                                            label="State"
-                                            class="formLabel"
-                                        >
-                                            <f:fields>
-                                                <Text
-                                                    text="{MainModel>State}"
-                                                    class="formText"
-                                                />
-                                            </f:fields>
-                                        </f:FormElement>
-
-                                        <f:FormElement
-                                            label="City"
-                                            class="formLabel"
-                                        >
-                                            <f:fields>
-                                                <Text
-                                                    text="{MainModel>city}"
-                                                    class="formText"
-                                                />
-                                            </f:fields>
-                                        </f:FormElement>
-                                        <f:FormElement
-                                            label="Phone Number"
-                                            class="formLabel"
-                                        >
-                                            <f:fields>
-                                                <Text
-                                                    text="{MainModel>Phno}"
-                                                    class="formText"
-                                                />
-                                            </f:fields>
-                                        </f:FormElement>
-                                        <f:FormElement
-                                            label="Gender"
-                                            class="formLabel"
-                                        >
-                                            <f:fields>
-                                                <Text
-                                                    text="{MainModel>gender}"
-                                                    class="formText"
-                                                />
-                                            </f:fields>
-                                        </f:FormElement>
-                                    </f:formElements>
-                                </f:FormContainer>
-
-                                <f:FormContainer title="Employment Details">
-                                    <f:formElements>
-                                        <f:FormElement
-                                            label="Date of Joining"
-                                            class="formLabel"
-                                        >
-                                            <f:fields>
-                                                <Text
-                                                    text="{MainModel>doj}"
-                                                    class="formText"
-                                                />
-                                            </f:fields>
-                                        </f:FormElement>
-                                        <f:FormElement
-                                            label="Designation"
-                                            class="formLabel"
-                                        >
-                                            <f:fields>
-                                                <Text
-                                                    text="{MainModel>desig}"
-                                                    class="formText"
-                                                />
-                                            </f:fields>
-                                        </f:FormElement>
-
-                                        <f:FormElement
-                                            label="Reporting Person"
-                                            class="formLabel"
-                                        >
-                                            <f:fields>
-                                                <Text
-                                                    text="{MainModel>reportingPerson}"
-                                                    class="formText"
-                                                />
-                                            </f:fields>
-                                        </f:FormElement>
-
-                                        <f:FormElement
-                                            label="Years Of Experience"
-                                            class="formLabel"
-                                        >
-                                            <f:fields>
-                                                <Text
-                                                    text="{MainModel>yoe} year"
-                                                    class="formText"
-                                                />
-                                            </f:fields>
-                                        </f:FormElement>
-
-                                        <f:FormElement
-                                            label="Leave"
-                                            class="formLabel"
-                                        >
-                                            <f:fields>
-                                                <Text
-                                                    id="leaveText"
-                                                    text="{MainModel>leave}"
-                                                    class="formText"
-                                                />
-                                            </f:fields>
-                                        </f:FormElement>
-                                    </f:formElements>
-                                </f:FormContainer>
-                            </f:formContainers>
-                        </f:Form>
-                    </content>
-                </Panel>
-            </VBox>
-        </content>
-    </Page>
+        <VBox class="sapUiSmallMargin">
+            <f:SimpleForm
+                id="SimpleFormChange480_12120"
+                editable="false"
+                layout="ResponsiveGridLayout"
+                title=""
+                labelSpanXL="4"
+                labelSpanL="4"
+                labelSpanM="12"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="0"
+                emptySpanL="0"
+                emptySpanM="0"
+                emptySpanS="0"
+                columnsXL="2"
+                columnsL="2"
+                columnsM="1"
+                singleContainerFullSize="false"
+            >
+                <f:content>
+                    <Text
+                        text="{MainModel>fname} {MainModel>lname}"
+                        class="fname"
+                    />
+                </f:content>
+            </f:SimpleForm>
+            <HBox class="buttonhbox">
+                <Button
+                    id="update"
+                    text="Edit"
+                    visible="true"
+                    press="onEdit"
+                    class="sapUiTinyMarginBeginEnd customButton"
+                    type="Emphasized"
+                />
+                <Button
+                    id="delete"
+                    text="Delete"
+                    visible="true"
+                    press="onDelete"
+                    class="sapUiTinyMarginBeginEnd customButton"
+                    type="Emphasized"
+                />
+            </HBox>
+            <f:SimpleForm
+                id="SimpleFormChange480_12120-2"
+                editable="false"
+                layout="ResponsiveGridLayout"
+                title=""
+                labelSpanXL="4"
+                labelSpanL="4"
+                labelSpanM="12"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="0"
+                emptySpanL="0"
+                emptySpanM="0"
+                emptySpanS="0"
+                columnsXL="2"
+                columnsL="2"
+                columnsM="1"
+                singleContainerFullSize="false"
+            >
+                <f:content>
+                    <core:Title text="Contact data" />
+                    <Label text="Email" />
+                    <Text text="{MainModel>email}" />
+                    <!-- Use Text control to display data -->
+                    <Label text="Skills" />
+                    <Text text="{MainModel>skills}" />
+                    <!-- Use Text control to display data -->
+                    <Label text="Country" />
+                    <Text text="{MainModel>country/name}" />
+                    <!-- Use Text control to display data -->
+                    <Label text="State" />
+                    <Text text="{MainModel>State}" />
+                    <Label text="City" />
+                    <Text text="{MainModel>city}" />
+                    <!-- Use Text control to display data -->
+                    <core:Title text="Profile" />
+                    <Label text="Email" />
+                    <Text text="{EMail}" />
+                    <!-- Use Text control to display data -->
+                    <Label text="Tel." />
+                    <Text text="{Tel}" />
+                    <!-- Use Text control to display data -->
+                    <Label text="SMS" />
+                    <Text text="{Sms}" />
+                    <!-- Use Text control to display data -->
+                </f:content>
+            </f:SimpleForm>
+            <f:SimpleForm
+                id="SimpleFormChange480_12120-3"
+                editable="false"
+                layout="ResponsiveGridLayout"
+                title="Details"
+                labelSpanXL="4"
+                labelSpanL="4"
+                labelSpanM="12"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="0"
+                emptySpanL="0"
+                emptySpanM="0"
+                emptySpanS="0"
+                columnsXL="2"
+                columnsL="2"
+                columnsM="1"
+                singleContainerFullSize="false"
+            >
+                <f:content>
+                    <Label text="Email" />
+                    <Text text="{EMail}" />
+                    <!-- Use Text control to display data -->
+                    <Label text="Tel." />
+                    <Text text="{Tel}" />
+                    <!-- Use Text control to display data -->
+                    <Label text="SMS" />
+                    <Text text="{Sms}" />
+                    <!-- Use Text control to display data -->
+                </f:content>
+            </f:SimpleForm>
+        </VBox>
+    </l:Splitter>
 </mvc:View>
